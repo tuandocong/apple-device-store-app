@@ -6,6 +6,7 @@ require("dotenv").config();
 const productRoute = require("./routes/products");
 const authRoute = require("./routes/auth");
 const cartRoute = require("./routes/carts");
+const orderRoute = require("./routes/orders");
 //
 //
 const app = express();
@@ -16,8 +17,8 @@ app.use(bodyParser.json());
 
 app.use("/products", productRoute);
 app.use("/auth", authRoute);
-app.use("/cart", cartRoute);
-// app.use("/users", usersRoute);
+app.use("/carts", cartRoute);
+app.use("/orders", orderRoute);
 // app.use("/transaction", transactionRoute);
 
 //ERROR 404 PAGE
