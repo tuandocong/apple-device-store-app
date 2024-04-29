@@ -4,7 +4,7 @@ const authControllers = require("../controllers/auth");
 const router = express.Router();
 
 //DANG KY USER
-router.post("/sign-up", authControllers.signUpUser);
+router.post("/signup", authControllers.signUpUser);
 
 //DANG NHAP
 router.post("/login", authControllers.loginUser);

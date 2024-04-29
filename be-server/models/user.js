@@ -21,7 +21,8 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    default: "client", //client/admin/adviser
+    enum: ["client", "admin", "adviser"],
+    default: "client",
   },
   cartId: {
     type: Schema.Types.ObjectId,

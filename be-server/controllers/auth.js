@@ -43,6 +43,7 @@ exports.signUpUser = async (req, res, next) => {
 exports.loginUser = async (req, res, next) => {
   const emailCheck = req.body.email;
   const passwordCheck = req.body.password;
+  console.log("here");
   try {
     const user = await User.findOne({
       email: emailCheck,
@@ -55,20 +56,26 @@ exports.loginUser = async (req, res, next) => {
     }
     //kiem tra mat khau:
     const doMatch = await bcrypt.compare(passwordCheck, user.password);
-    console.log(doMatch);
+    // console.log(doMatch);
     if (!doMatch) {
       return res
         .status(404)
         .json({ msg: "Username or password is incorrect!", isSuccess: false });
     }
-    // console.log("LOGGED IN: ", user);
 
     //tach password
     const { password, ...ortherData } = user._doc;
+    // console.log("LOGGED IN: ", ortherData);
 
-    const accessToken = jwt.sign(ortherData, process.env.ACCESS_TOKEN_SECRET, {
-      expiresIn: "1d",
-    });
+    //tao 1 jsonWebToken:
+    const accessToken = jwt.sign(
+      { _id: ortherData._id },
+      process.env.ACCESS_TOKEN_SECRET,
+      {
+        expiresIn: "1d",
+      }
+    );
+
     res.status(200).json({
       msg: "LOGGED IN",
       isSuccess: true,
