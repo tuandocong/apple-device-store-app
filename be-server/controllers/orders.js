@@ -4,12 +4,12 @@ const Order = require("../models/order");
 //Add to Cart
 exports.addOrder = async (req, res, next) => {
   try {
-    const cartId = req.params.cartId;
+    const cartId = req.user.cartId;
 
     const user = {
-      _id: req.body._id,
-      username: req.body.username,
-      email: req.body.email,
+      _id: req.user._id,
+      username: req.user.username,
+      email: req.user.email,
       phone: req.body.phone,
       address: req.body.address,
     };
@@ -61,10 +61,10 @@ exports.addOrder = async (req, res, next) => {
   }
 };
 
-//Get Order by id
+//Get Orders by userID
 exports.getOrderById = async (req, res, next) => {
   try {
-    const name = req.params.userId;
+    const name = req.user._id;
 
     const orders = await Order.find({ "user._id": name });
     console.log("result:", orders);

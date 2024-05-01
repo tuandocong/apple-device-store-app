@@ -1,6 +1,7 @@
 const express = require("express");
 const productControllers = require("../controllers/products");
 const isAdmin = require("../middlewares/isAdmin");
+const isAuth = require("../middlewares/isAuth");
 
 const router = express.Router();
 
@@ -8,14 +9,20 @@ const router = express.Router();
 router.get("/", productControllers.getProducts);
 
 // CREATE
-router.post("/add-product", isAdmin, productControllers.postAddProduct);
+router.post("/add-product", isAuth, isAdmin, productControllers.postAddProduct);
 
 // //UPDATE
-router.post("/update-product/:id", isAdmin, productControllers.postEditProduct);
+router.post(
+  "/update-product/:id",
+  isAuth,
+  isAdmin,
+  productControllers.postEditProduct
+);
 
 // //DELETE
 router.post(
   "/delete-product/:id",
+  isAuth,
   isAdmin,
   productControllers.deleteProductById
 );

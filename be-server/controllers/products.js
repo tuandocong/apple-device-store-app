@@ -14,6 +14,7 @@ exports.getProducts = async (req, res, next) => {
 //CREATE a new product
 exports.postAddProduct = async (req, res, next) => {
   const newProd = new Product(req.body);
+  // console.log(req.user);
   try {
     //save new product
     const savedProd = await newProd.save();
