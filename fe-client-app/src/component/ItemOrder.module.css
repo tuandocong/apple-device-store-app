@@ -1,0 +1,30 @@
+.product {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.icon {
+  color: rgb(105, 105, 105);
+  background-color: white;
+  border: none;
+}
+.icon:hover,
+.icon:active {
+  color: black;
+}
+
+.order {
+  color: rgb(88, 88, 88);
+  font-size: 15px;
+  overflow: auto;
+}
+.order button {
+  width: 90%;
+  background-color: white;
+  color: rgb(88, 88, 88);
+}
+.order button:hover,
+.order button:active {
+  background-color: rgb(233, 233, 233);
+  color: black;
+}

@@ -1,0 +1,31 @@
+.context-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-style: italic;
+}
+.context-navbar button {
+  background-color: white;
+
+  border: none;
+  font-size: 22px;
+  padding: 10px 30px;
+  font-style: italic;
+}
+.text-header {
+  font-size: 32px;
+
+  margin: 30px;
+}
+.active {
+  color: rgb(225, 184, 0);
+}
+.user {
+  font-size: 22px;
+  display: inline-block;
+}
+.icons {
+  color: rgb(188, 188, 188);
+  margin-right: 3px;
+  padding-bottom: 5px;
+}

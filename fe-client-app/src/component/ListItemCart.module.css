@@ -1,0 +1,23 @@
+.header-table {
+  background-color: rgb(235, 235, 235);
+  font-style: italic;
+  padding: 15px 0px;
+}
+.button-table {
+  background-color: rgb(235, 235, 235);
+  font-style: italic;
+  padding: 15px 0px;
+  margin-top: 50px;
+}
+.button-table button {
+  border: none;
+  background-color: rgb(235, 235, 235);
+  padding: 10px 20px;
+  color: rgb(90, 90, 90);
+  font-style: italic;
+}
+.button-table button:hover {
+  border: 1px solid black;
+  color: black;
+  font-style: italic;
+}

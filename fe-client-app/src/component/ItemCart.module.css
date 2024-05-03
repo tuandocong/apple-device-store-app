@@ -1,0 +1,24 @@
+.product {
+  font-size: 18px;
+  font-weight: 500;
+}
+.price {
+  color: rgb(154, 154, 154);
+  font-size: 15px;
+  font-weight: 500;
+}
+.icon {
+  color: rgb(105, 105, 105);
+  background-color: white;
+  border: none;
+}
+.icon:hover,
+.icon:active {
+  color: black;
+}
+.quantity {
+  display: inline-block;
+  border: none;
+  width: 70%;
+  text-align: center;
+}

@@ -1,0 +1,30 @@
+.banner {
+  position: relative;
+}
+.banner-context {
+  text-align: left;
+  width: 300px;
+  position: absolute;
+  left: 7%;
+  bottom: 25%;
+}
+.banner-context p {
+  color: rgb(165, 165, 165);
+
+  font-size: 16px;
+}
+.banner-context h2 {
+  font-size: 26px;
+  color: rgb(48, 48, 48);
+  margin-top: 0;
+}
+.banner-context button {
+  font-size: 16px;
+  color: rgb(200, 200, 200);
+  background-color: rgb(39, 39, 39);
+  padding: 10px 15px;
+}
+.banner-context button:hover,
+.banner-context button:active {
+  background-color: rgb(75, 75, 75);
+}

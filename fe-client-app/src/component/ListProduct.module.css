@@ -1,0 +1,25 @@
+.products {
+  text-align: left;
+  /* border: 2px solid green; */
+  margin: 70px 0;
+}
+.header p {
+  color: rgb(165, 165, 165);
+  font-size: 15px;
+  margin-bottom: 0px;
+  font-style: italic;
+}
+.header div {
+  font-size: 24px;
+  color: rgb(40, 40, 40);
+  font-style: italic;
+  margin-bottom: 30px;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-content: start;
+  row-gap: 40px;
+  column-gap: 20px;
+}

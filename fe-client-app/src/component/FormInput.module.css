@@ -1,0 +1,53 @@
+.contain {
+  margin: 50px;
+  color: rgb(100, 100, 100);
+}
+.contain input {
+  padding: 20px 30px;
+  min-width: 30vw;
+  font-weight: 500;
+  border: 1px solid rgb(189, 184, 184);
+}
+.contain header {
+  font-size: 32px;
+  font-style: italic;
+  margin: 70px 0;
+}
+.submit-btn {
+  margin: 30px 0;
+  width: 100%;
+  padding: 20px 0;
+  color: white;
+  background-color: rgb(49, 49, 49);
+  border: none;
+}
+.submit-btn:hover,
+.submit-btn:active {
+  background-color: rgb(118, 118, 118);
+}
+.click-btn {
+  border: none;
+  background-color: white;
+  color: rgb(110, 110, 255);
+  display: inline-block;
+  font-style: italic;
+  padding: 0 10px;
+}
+.click-btn:hover,
+.click-btn:active {
+  text-decoration: underline;
+  color: rgb(59, 59, 252);
+}
+.text-change {
+  display: inline-block;
+  color: rgb(155, 155, 155);
+}
+.change-box {
+  font-style: italic;
+  font-size: 20px;
+  margin: 30px 0;
+}
+.submit-btn:disabled {
+  background-color: rgb(232, 230, 230);
+  color: rgb(165, 165, 165);
+}

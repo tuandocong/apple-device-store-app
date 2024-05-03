@@ -1,0 +1,18 @@
+.content-grid {
+  /* border: 2px solid green; */
+  background-color: rgb(235, 235, 235);
+  padding: 60px 0 40px;
+}
+.content-grid h2 {
+  font-style: italic;
+  font-size: 24px;
+  color: rgb(40, 40, 40);
+  font-weight: 400;
+}
+
+.content-grid p {
+  font-style: italic;
+  color: rgb(169, 169, 169);
+  font-size: 15px;
+  font-weight: 500;
+}

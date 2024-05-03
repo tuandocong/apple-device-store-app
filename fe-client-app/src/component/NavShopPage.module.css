@@ -1,0 +1,52 @@
+.nav-shop {
+  /* border: 2px solid green; */
+  text-align: left;
+  padding: 0;
+  font-style: italic;
+}
+.nav-shop header {
+  color: rgb(40, 40, 40);
+  font-size: 22px;
+  font-weight: 500;
+  font-style: italic;
+  padding: 40px 0 20px;
+}
+.contain {
+  padding-left: 20px;
+}
+.nav-shop ul {
+  list-style-type: none;
+  /* border: 1px solid orange; */
+  margin: 0;
+  padding: 0;
+}
+.categories {
+  background-color: rgb(235, 235, 235);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 30px;
+}
+.apple {
+  background-color: rgb(40, 40, 40);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 30px;
+}
+.nav-shop button {
+  background-color: white;
+  border: none;
+  color: rgb(139, 139, 139);
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  padding: 5px 30px;
+  text-align: left;
+  width: 100%;
+}
+.nav-shop button:hover {
+  color: rgb(247, 199, 111);
+}
+.active-btn {
+  color: rgb(190, 123, 0) !important;
+}

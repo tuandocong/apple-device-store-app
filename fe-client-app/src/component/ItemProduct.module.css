@@ -1,0 +1,15 @@
+.product-item {
+  text-align: center;
+  /* border: 1px solid green; */
+  /* box-shadow: 5px 5px 15px #888; */
+}
+.name {
+  font-weight: 500;
+  color: rgb(40, 40, 40);
+}
+.price {
+  color: rgb(122, 122, 122);
+}
+.product-item img:hover {
+  filter: opacity(65%);
+}

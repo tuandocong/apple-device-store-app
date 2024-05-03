@@ -1,0 +1,45 @@
+.cart {
+  background-color: rgb(235, 235, 235);
+  padding: 30px 15px;
+  text-align: left;
+  font-style: italic;
+}
+.cart header {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgb(79, 79, 79);
+
+  margin-bottom: 20px;
+}
+.text {
+  font-weight: 500;
+  color: rgb(79, 79, 79);
+}
+.subtotal {
+  color: rgb(171, 171, 171);
+  padding-bottom: 10px;
+}
+.total-text {
+  font-size: 18px;
+  color: rgb(106, 106, 106);
+}
+.total {
+  padding: 10px 0 50px;
+  border-top: 2px solid rgb(200, 200, 200);
+}
+.cart input {
+  width: 100%;
+  border: 2px solid rgb(200, 200, 200);
+  padding: 5px 10px;
+  color: rgb(206, 206, 206);
+}
+.cart button {
+  width: 100%;
+  border: none;
+  color: white;
+  background-color: rgb(57, 57, 57);
+  padding: 7px 10px;
+}
+.cart button:hover {
+  background-color: rgb(87, 87, 87);
+}
