@@ -57,30 +57,36 @@ const FormInput = () => {
     // console.log(isValidate);
     if (!isSignIn) {
       //-------------------------------------------khi click button SIGN UP(dang ky):
-      let newArr = localStorage.getItem("userArr")
-        ? JSON.parse(localStorage.getItem("userArr"))
-        : [];
 
-      //kiểm tra có trùng email đăng ký?
-      const emailCheck = newArr.find((user) => {
-        return user.email === emailInput;
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      const raw = JSON.stringify({
+        email: emailInput,
+        password: passwordInput,
+        phone: phoneInput,
+        username: nameInput,
       });
-      if (emailCheck) {
-        alert("Email khong hop le !");
-        setEmailInput("");
-      } else {
-        newArr.push({
-          name: nameInput,
-          email: emailInput,
-          password: passwordInput,
-          phone: phoneInput,
-        });
-        alert("Dang ky user thanh cong !!!");
-        setIsSignIn(true);
-      }
 
-      // update LocalStorage
-      localStorage.setItem("userArr", JSON.stringify(newArr));
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch(`${process.env.REACT_APP_API_URL}/auth/signup`, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          if (!result.isSuccess) {
+            alert("Sign up fail!");
+            console.log("result:", result);
+            throw new Error(result.msg);
+          }
+          alert("Dang ky user thanh cong !!!");
+          setIsSignIn(true);
+        })
+        .catch((error) => console.error(error.message));
     } else {
       //---------khi click button SIGN IN(dang nhap): ----------
 
@@ -102,6 +108,12 @@ const FormInput = () => {
       fetch(`${process.env.REACT_APP_API_URL}/auth/login`, requestOptions)
         .then((response) => response.json())
         .then((result) => {
+          if (!result.isSuccess) {
+            alert("Login fail!");
+            console.log("result:", result);
+            throw new Error(result.msg);
+          }
+
           localStorage.setItem("curUser", JSON.stringify(result.user));
           localStorage.setItem("token", JSON.stringify(result.token));
 
@@ -110,7 +122,7 @@ const FormInput = () => {
           navigate("/");
           alert("LOGIN Thanh cong!!!");
         })
-        .catch((error) => console.error(error));
+        .catch((error) => alert(error.message));
     }
   };
 
