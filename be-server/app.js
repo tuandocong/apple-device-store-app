@@ -7,19 +7,39 @@ const productRoute = require("./routes/products");
 const authRoute = require("./routes/auth");
 const cartRoute = require("./routes/carts");
 const orderRoute = require("./routes/orders");
+const userRoute = require("./routes/users");
+const path = require("path");
+const multer = require("multer");
 //
 //
 const app = express();
 
 //---------------middlewares-------------
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use(
+  multer({
+    storage: fileStorage,
+  }).array("images", 4)
+);
+
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use("/products", productRoute);
 app.use("/auth", authRoute);
 app.use("/carts", cartRoute);
 app.use("/orders", orderRoute);
-// app.use("/transaction", transactionRoute);
+app.use("/users", userRoute);
 
 //ERROR 404 PAGE
 app.use((req, res, next) => {

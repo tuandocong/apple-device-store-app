@@ -67,7 +67,20 @@ exports.addOrder = async (req, res, next) => {
       $set: { products: [] },
     });
 
-    //gui mail:
+    //GUI EMAIL CHO USER:
+
+    // Tạo một đối tượng Date
+    let currentDate = new Date();
+
+    // Lấy ngày, tháng và năm từ đối tượng Date
+    let day = currentDate.getDate().toString();
+    let month = (currentDate.getMonth() + 1).toString();
+    let year = currentDate.getFullYear();
+
+    // Xây dựng chuỗi theo định dạng dd/mm/yyyy
+    let formattedDate = day + "/" + month + "/" + year;
+
+    //Send mail:
     const info = await transporter.sendMail({
       from: process.env.APP_EMAIL, // sender address
       to: user.email, // list of receivers
@@ -96,8 +109,9 @@ exports.addOrder = async (req, res, next) => {
               background-color: rgb(41, 41, 41);
               color: white;
             }
-            table-products {
-              width: 100%;
+            table{
+              width: 80%;
+              table-layout:fixed;
             }
             td {
               text-align: center;
@@ -116,9 +130,10 @@ exports.addOrder = async (req, res, next) => {
               <h1>Xin chao ${user.username}</h1>
               <div>Phone: ${user.phone}</div>
               <div>Address: ${user.address}</div>
+              <div>Date Order: ${formattedDate} </div>
             </div>
       
-            <div class="table-products">
+            <div>
               <table>
                 <tr>
                   <td>Tên Sản Phẩm</td>
@@ -204,5 +219,39 @@ exports.getOrderById = async (req, res, next) => {
     res.status(201).json({ isSuccess: true, data: result[0] });
   } catch (error) {
     next(error);
+  }
+};
+
+//Lay cac order gan nhat
+exports.getLatestOrder = async (req, res, next) => {
+  try {
+    const orders = await Order.find();
+    latestOrders = orders.slice(-5).reverse();
+    res.status(200).json({ data: latestOrders, isSuccess: true });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+//dem orders
+exports.countOrders = async (req, res, next) => {
+  try {
+    const count = await Order.countDocuments();
+    res.status(200).json(count);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+//lay Earnings
+exports.getEarnings = async (req, res, next) => {
+  try {
+    const orders = await Order.find();
+    const earnings = orders.reduce((total, item) => {
+      return (total = total + item.totalPrice);
+    }, 0);
+    res.status(200).json(earnings);
+  } catch (err) {
+    res.status(500).json(err);
   }
 };

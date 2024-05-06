@@ -46,7 +46,7 @@ exports.deleteUserById = async (req, res, next) => {
 //Count User
 exports.countUser = async (req, res, next) => {
   try {
-    const countUser = await User.countDocuments({ isAdmin: false });
+    const countUser = await User.countDocuments({ role: "client" });
     res.status(200).json(countUser);
   } catch (error) {
     res.status(500).json(error);

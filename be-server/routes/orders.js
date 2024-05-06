@@ -12,4 +12,13 @@ router.get("/getById", isAuth, orderControllers.getOrderByUserId);
 //GET ORDER BY ORDER ID
 router.get("/order/:id", isAuth, orderControllers.getOrderById);
 
+//GET LATEST ORDER
+router.get("/latest", isAuth, orderControllers.getLatestOrder);
+
+// COUNT ORDER
+router.get("/count", orderControllers.countOrders);
+
+// GET EARNING
+router.get("/earnings", orderControllers.getEarnings);
+
 module.exports = router;

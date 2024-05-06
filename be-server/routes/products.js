@@ -8,6 +8,9 @@ const router = express.Router();
 //GET ALL
 router.get("/", productControllers.getProducts);
 
+//GET By ID
+router.get("/product/:id", productControllers.getById);
+
 // CREATE
 router.post("/add-product", isAuth, isAdmin, productControllers.postAddProduct);
 
@@ -20,7 +23,7 @@ router.post(
 );
 
 // //DELETE
-router.post(
+router.delete(
   "/delete-product/:id",
   isAuth,
   isAdmin,
