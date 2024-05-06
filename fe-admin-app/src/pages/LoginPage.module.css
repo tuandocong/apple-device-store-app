@@ -1,0 +1,17 @@
+.login-page {
+  background-image: url(../img/banner1.jpg);
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  height: 150vh;
+  position: relative;
+}
+.form-input {
+  position: absolute;
+  max-height: 95%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: -3px 0px 7px 3px rgb(197, 197, 197);
+}

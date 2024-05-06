@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding: 60px 15vw;
+}
+.footer li {
+  list-style: none;
+}
+.footer ul {
+  width: 100%;
+  /* background-color: red; */
+  padding-left: 0px;
+  text-align: left;
+}
+.footer a {
+  color: rgb(193, 193, 193);
+  font-size: 18px;
+  text-decoration: none;
+}
+.footer h2 {
+  font-size: 16px;
+  font-style: italic;
+}
+.item {
+  text-align: left;
+}

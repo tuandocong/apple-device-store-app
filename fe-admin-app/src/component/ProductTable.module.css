@@ -1,0 +1,77 @@
+.table {
+  max-height: 60vh;
+  overflow: auto;
+  position: relative;
+}
+
+.table-head {
+  background-color: rgb(120, 120, 120);
+  position: sticky;
+  top: 0;
+}
+
+.headCell {
+  font-weight: bold;
+  color: white;
+  border: 1px solid rgb(155, 155, 155);
+  border-top: none;
+}
+.cellWrapper {
+  display: flex;
+  align-items: center;
+}
+.image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+.tableCell {
+  border: 1px solid rgb(155, 155, 155);
+}
+.btnUpdateCell {
+  background-color: rgb(29, 181, 115);
+  color: white;
+  border: none;
+  padding: 6px 9px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+.btnUpdateCell:hover,
+.btnUpdateCell:active {
+  background-color: rgb(25, 237, 146);
+}
+.btnDeleteCell {
+  background-color: rgb(207, 45, 80);
+  color: white;
+  border: none;
+  padding: 6px 9px;
+  border-radius: 3px;
+}
+.btnDeleteCell:hover,
+.btnDeleteCell:active {
+  background-color: rgb(255, 8, 61);
+}
+.prodSearch {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.prodSearch input {
+  padding: 5px 15px;
+}
+.prodSearch button {
+  padding: 5px 15px;
+  margin-right: 50px;
+  background-color: rgb(250, 186, 26);
+  color: rgb(67, 67, 67);
+  border: none;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.prodSearch button:hover,
+.prodSearch button:active {
+  background-color: rgb(245, 209, 68);
+  color: rgb(31, 31, 31);
+}

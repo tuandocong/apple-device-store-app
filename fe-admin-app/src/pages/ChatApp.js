@@ -1,0 +1,8 @@
+const ChatApp = (props) => {
+  return (
+    <div>
+      <h1>Chat App</h1>
+    </div>
+  );
+};
+export default ChatApp;
