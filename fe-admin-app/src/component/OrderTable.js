@@ -23,7 +23,7 @@ const OrderTable = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/orders/latest", requestOptions)
+    fetch(`${process.env.REACT_APP_API_URL}/orders/latest`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
