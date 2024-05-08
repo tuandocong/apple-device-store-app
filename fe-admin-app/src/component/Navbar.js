@@ -12,7 +12,9 @@ const Navbar = () => {
   //---------  lay du lieu tu localStorage
   let isLogin = false; // trạng thái Login/out
   let isAdmin = false;
-  const userLogin = JSON.parse(localStorage.getItem("curUser"));
+  const userLogin = localStorage.getItem("curUser")
+    ? JSON.parse(localStorage.getItem("curUser"))
+    : {};
   if (Object.values(userLogin).length !== 0) {
     // console.log(Object.values(curUser).length === 0);    //  kiem tra doi tuong tra ve === {} ?
     isLogin = true;
