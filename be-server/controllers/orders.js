@@ -191,7 +191,7 @@ exports.getOrderByUserId = async (req, res, next) => {
     const name = req.user._id;
 
     const orders = await Order.find({ "user._id": name });
-    console.log("result:", orders);
+    // console.log("result:", orders);
     //trả kết quả về cho Client:
     res.status(201).json(orders);
   } catch (error) {

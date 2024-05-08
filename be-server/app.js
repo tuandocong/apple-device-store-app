@@ -10,6 +10,8 @@ const orderRoute = require("./routes/orders");
 const userRoute = require("./routes/users");
 const path = require("path");
 const multer = require("multer");
+
+const Session = require("./models/session");
 //
 //
 const app = express();
@@ -64,8 +66,56 @@ mongoose
     return result;
   })
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    const server = app.listen(process.env.PORT, () => {
       console.log("SERVER start at POST: ", process.env.PORT);
+    });
+
+    //tao Websocket
+    const io = require("socket.io")(server, {
+      cors: {
+        origin: "*",
+        methods: ["GET", "POST"],
+      },
+    });
+    // Xử lý sự kiện khi kết nối thành công
+    io.on("connection", (socket) => {
+      console.log("Client Connected");
+      let curRoom;
+
+      //them client vao 1 room
+      socket.on("join", (newRoom) => {
+        //leave room cũ
+        socket.leave(curRoom);
+        //lấy giá trị room mới muốn join
+        curRoom = newRoom;
+        socket.join(curRoom);
+
+        Session.find({ chatRoom: curRoom })
+          .then((result) => {
+            io.to(socket.id).emit("list-chat", result);
+          })
+          .catch((err) => console.log(err));
+      });
+
+      //khi client gui di tin nhan
+      socket.on("send-message", (data) => {
+        // console.log(">>>From room: ", curRoom);
+        const newSession = new Session({
+          userSend: data.user,
+          chatRoom: curRoom,
+          chatMessage: data.msg,
+        });
+        newSession
+          .save()
+          .then(() => {
+            return Session.find({ chatRoom: curRoom });
+          })
+          .then((data) => {
+            // console.log(data);
+            io.to(curRoom).emit("receive-message", data);
+          })
+          .catch((err) => console.log(err));
+      });
     });
   })
   .catch((err) => {

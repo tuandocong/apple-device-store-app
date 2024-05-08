@@ -3,8 +3,8 @@ const User = require("../models/user");
 //lay tat ca Users
 exports.getUsers = async (req, res, next) => {
   try {
-    const users = await User.find();
-    res.status(200).json(users);
+    const users = await User.find({ role: "client" });
+    res.status(200).json({ data: users, isSuccess: true });
   } catch (error) {
     res.status(500).json(err);
   }

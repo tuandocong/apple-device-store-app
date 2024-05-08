@@ -4,14 +4,18 @@ import { BsFillSendFill, BsFillEmojiSmileFill } from "react-icons/bs";
 import { GrAttachment } from "react-icons/gr";
 
 import classes from "./PopupChat.module.css";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import io from "socket.io-client";
+//ket noi voi server
+const socket = io(`${process.env.REACT_APP_API_URL}`);
 
 const PopupChat = () => {
-  const dispatch = useDispatch();
-
+  // const dispatch = useDispatch();
   //lấy data listChat
-  const listChat = useSelector((state) => state.popupChat.listChat);
+  const [listChat, setListChat] = useState([]);
+  const user = useSelector((state) => state.loginPage.user);
 
   //trạng thái Show/hide
   const [isShow, setIsShow] = useState(false);
@@ -19,16 +23,35 @@ const PopupChat = () => {
     setIsShow((prevState) => !prevState);
   };
 
-  //gửi message
+  //input message
   const [sendInput, setSendInput] = useState("");
   const sendInputChange = (e) => {
     setSendInput(e.target.value);
   };
-  const sendBtnHandler = () => {
-    dispatch({
-      type: "SEND_DATA",
-      payload: [{ name: "user", text: sendInput }],
+
+  useEffect(() => {
+    // khi kết nối thành công
+    socket.on("connect", () => {
+      console.log("Connected to server");
     });
+    //join vao room tren server:
+    const room = user._id;
+    socket.emit("join", room);
+    // Lắng nghe các message moi từ server
+    socket.on("receive-message", (data) => {
+      // console.log("Received message from server:", data);
+      setListChat(data);
+    });
+    //Lắng nghe server gui data khi join Room:
+    socket.on("list-chat", (data) => {
+      // console.log("List chat:", data);
+      setListChat(data);
+    });
+  }, [user]);
+
+  //ham gui message
+  const sendBtnHandler = () => {
+    socket.emit("send-message", { msg: sendInput, user: "client" });
     setSendInput("");
   };
 
@@ -51,19 +74,21 @@ const PopupChat = () => {
             </header>
 
             <div className={classes.chat}>
-              {listChat.map((item, index) => (
+              {listChat.map((item) => (
                 <div
-                  key={index}
-                  className={item.name === "sup" ? classes.sup : classes.user}
+                  key={item._id}
+                  className={
+                    item.userSend === "client" ? classes.user : classes.sup
+                  }
                 >
                   <div
                     className={
-                      item.name === "sup"
-                        ? classes["sup-chat"]
-                        : classes["user-chat"]
+                      item.userSend === "client"
+                        ? classes["user-chat"]
+                        : classes["sup-chat"]
                     }
                   >
-                    {item.text}
+                    {item.chatMessage}
                   </div>
                 </div>
               ))}

@@ -69,6 +69,7 @@
   height: 75%;
   overflow: scroll;
   /* border: 1px solid blue; */
+  padding-bottom: 70px;
 }
 .send {
   position: absolute;

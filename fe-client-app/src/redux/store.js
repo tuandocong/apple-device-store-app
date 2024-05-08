@@ -25,7 +25,7 @@ const reducerNavBar = (state = initStateNavbar, action) => {
 const initStateHome = {
   showPopup: false,
   itemPopup: {
-    _id:"",
+    _id: "",
     name: "Nothing",
     price: 0,
     short_desc: "nothing",
@@ -220,21 +220,21 @@ const reducerLocal = (state = innitStateLocal, action) => {
   }
 };
 //-----------------------------reducer view Chat-----------------------
-const innitStatePopup = {
-  listChat: [
-    { name: "user", text: "Hello" },
-    { name: "sup", text: "Hello! How can i hepl you?" },
-  ],
-};
-const reducerPopup = (state = innitStatePopup, action) => {
-  switch (action.type) {
-    case "SEND_DATA":
-      const newListChat = state.listChat.concat(action.payload);
-      return { listChat: newListChat };
-    default:
-      return state;
-  }
-};
+// const innitStatePopup = {
+//   listChat: [
+//     { name: "user", text: "Hello" },
+//     { name: "sup", text: "Hello! How can i hepl you?" },
+//   ],
+// };
+// const reducerPopup = (state = innitStatePopup, action) => {
+//   switch (action.type) {
+//     case "SEND_DATA":
+//       const newListChat = state.listChat.concat(action.payload);
+//       return { listChat: newListChat };
+//     default:
+//       return state;
+//   }
+// };
 
 //--------------------------Root reducer---------------------------
 const rootReducer = combineReducers({
@@ -244,7 +244,7 @@ const rootReducer = combineReducers({
   loginPage: reducerLogin,
   cartPage: reducerCart,
   cartLocal: reducerLocal,
-  popupChat: reducerPopup,
+  // popupChat: reducerPopup,
 });
 const store = createStore(rootReducer);
 export default store;
