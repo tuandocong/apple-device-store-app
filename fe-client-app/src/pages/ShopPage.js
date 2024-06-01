@@ -5,7 +5,7 @@ const ShopPage = (props) => {
   // console.log(props.data);
   return (
     <div>
-      <div className="container">
+      <div>
         <div
           className={`row align-items-center justify-content-between ${classes.header}`}
         >
@@ -14,10 +14,10 @@ const ShopPage = (props) => {
         </div>
 
         <div className="row">
-          <div className="col-3">
+          <div className="col-6 col-md-4 col-lg-3">
             <NavShopPage />
           </div>
-          <div className="col-9">
+          <div className="col-6 col-md-8 col-lg-9">
             <ListShopPage data={props.data} />
           </div>
         </div>

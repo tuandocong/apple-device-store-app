@@ -102,7 +102,9 @@ const NavShopPage = () => {
             </button>
           </li>
         </ul>
-        <div className={classes.categories}>WIRELESS</div>
+        <div className={`${classes.categories} ${classes["text-overflow"]}`}>
+          WIRELESS
+        </div>
         <ul>
           <li>
             <button

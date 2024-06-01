@@ -24,13 +24,11 @@ const ListProducts = (props) => {
         <p>MADE THE HARD WAY</p>
         <div>TOP TRENDING PRODUCTS</div>
       </header>
-      <div className={classes.container}>
+      <div className="row g-3">
         {props.data.map((item) => (
-          <ItemProduct
-            key={item.name}
-            item={item}
-            clickHandler={itemPopupChange}
-          />
+          <div className="col-6 col-md-4 col-lg-3" key={item.name}>
+            <ItemProduct item={item} clickHandler={itemPopupChange} />
+          </div>
         ))}
       </div>
     </div>

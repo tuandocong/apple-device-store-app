@@ -1,12 +1,12 @@
 .product {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   overflow: auto;
 }
 
 .price {
   color: rgb(154, 154, 154);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
 }
 .icon {
@@ -23,4 +23,16 @@
   border: none;
   width: 70%;
   text-align: center;
+}
+.row-table {
+  --bs-gutter-x: 0 !important;
+  border: 1px solid rgb(220, 220, 220);
+}
+@media only screen and (max-width: 992px) {
+  .product {
+    font-size: 12px;
+  }
+  .price {
+    font-size: 12px;
+  }
 }

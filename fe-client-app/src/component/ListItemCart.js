@@ -21,12 +21,12 @@ const ListItemCart = (props) => {
   return (
     <div className="container">
       <div className={`row ${classes["header-table"]} justify-content-between`}>
-        <div className="col-2">IMAGE</div>
-        <div className="col-3">PRODUCT</div>
-        <div className="col">PRICE</div>
-        <div className="col">QUANTITY</div>
-        <div className="col">TOTAL</div>
-        <div className="col">REMOVE</div>
+        <div className={`col-2 ${classes["header-text"]}`}>IMAGE</div>
+        <div className={`col-2 ${classes["header-text"]}`}>PRODUCT</div>
+        <div className={`col-2 ${classes["header-text"]}`}>PRICE</div>
+        <div className={`col-2 ${classes["header-text"]}`}>QUANTITY</div>
+        <div className={`col-2 ${classes["header-text"]}`}>TOTAL</div>
+        <div className={`col-2 ${classes["header-text"]}`}>REMOVE</div>
       </div>
       {props.listCart.length === 0 ? (
         <div className="row align-items-center">

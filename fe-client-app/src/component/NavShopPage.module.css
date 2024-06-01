@@ -33,6 +33,11 @@
   font-weight: 500;
   padding: 5px 30px;
 }
+.text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .nav-shop button {
   background-color: white;
   border: none;

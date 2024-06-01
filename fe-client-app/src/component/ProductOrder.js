@@ -4,7 +4,7 @@ const ProductOrder = (props) => {
   return (
     <div>
       <div
-        className="row align-items-center justify-content-between"
+        className={`row align-items-center justify-content-between ${classes["row-table"]}`}
         style={{ marginTop: "15px" }}
       >
         <div className={`col-3 ${classes.product}`}>{props.data.productId}</div>
@@ -13,18 +13,18 @@ const ProductOrder = (props) => {
           <img src={props.data.img} alt={"this is a img"} width={"100%"} />
         </div>
 
-        <div className={`col-3 ${classes.product}`}>
+        <div className={`col-2 ${classes.product}`}>
           {props.data.productName}
         </div>
 
-        <div className={`col ${classes.product}`}>
+        <div className={`col-2 ${classes.product}`}>
           {new Intl.NumberFormat("it-IT", {
             style: "currency",
             currency: "VND",
           }).format(props.data.price)}
         </div>
 
-        <div className={`col ${classes.product}`}>{props.data.quantity}</div>
+        <div className={`col-2 ${classes.product}`}>{props.data.quantity}</div>
       </div>
     </div>
   );

@@ -86,7 +86,7 @@ const CheckoutPage = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className={classes["checkout-p"]}>
         <div
           className={`row align-items-center justify-content-between ${classes.header}`}
         >
@@ -107,8 +107,11 @@ const CheckoutPage = () => {
         <div className="row">
           <h2 className={classes["text-h2"]}>BILLING DETAILS</h2>
         </div>
-        <div className="row" style={{ width: "100%" }}>
-          <div className="col-7" style={{ textAlign: "left" }}>
+        <div className={`row ${classes.order}`} style={{ width: "100%" }}>
+          <div
+            className="col-12 col-lg-7"
+            style={{ textAlign: "left", padding: "0 20px" }}
+          >
             <form className={classes.form} onSubmit={submitHandler}>
               <div className="form-group">
                 <label htmlFor="nameInput">FULL NAME:</label>
@@ -159,7 +162,7 @@ const CheckoutPage = () => {
               </button>
             </form>
           </div>
-          <div className="col-5">
+          <div className="col-12 col-lg-5">
             <CheckoutOrder data={orderList} total={total} />
           </div>
         </div>

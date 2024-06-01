@@ -33,7 +33,7 @@ const DetailOrder = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className={classes["detail-order-p"]}>
         <div
           className={`row align-items-center justify-content-between ${classes.header}`}
         >
@@ -44,8 +44,8 @@ const DetailOrder = () => {
         <div className={classes.information}>
           <h1>INFORMATION ORDER</h1>
           <div className={classes["information-user"]}>
-            <div>
-              <p>ID User: </p>
+            <div className={classes.title}>
+              <p>ID User:</p>
               <p>Full Name: </p>
               <p>Phone: </p>
               <p>Address: </p>
@@ -65,15 +65,15 @@ const DetailOrder = () => {
             </div>
           </div>
         </div>
-        <div className="container" style={{ margin: "10% 0" }}>
+        <div style={{ margin: "10% 0" }}>
           <div
             className={`row ${classes["header-table"]} justify-content-between`}
           >
-            <div className="col-3">ID PRODUCT</div>
-            <div className="col-3">IMAGE</div>
-            <div className="col-3">NAME</div>
-            <div className="col">PRICE</div>
-            <div className="col">COUNT</div>
+            <div className={`col-3 `}>ID PRODUCT</div>
+            <div className={`col-3 ${classes.even}`}>IMAGE</div>
+            <div className={`col-2`}>NAME</div>
+            <div className={`col-2 ${classes.even}`}>PRICE</div>
+            <div className={`col-2`}>COUNT</div>
           </div>
           {dataOrder.products?.length === 0 ? (
             <div className="row align-items-center">

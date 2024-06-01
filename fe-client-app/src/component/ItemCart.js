@@ -5,9 +5,7 @@ import { useSelector } from "react-redux";
 const ItemCart = (props) => {
   const token = useSelector((state) => state.loginPage.token);
   const total = props.data.productId.price * props.data.quantity;
-  // const [quantityValue, setQuantityValue] = useState(props.data.quantity);
 
-  // const dispatch = useDispatch();
   const deleteItemHandler = () => {
     // const confirmValue = confirm(
     //   "Bạn có chắc chắn muốn thực hiện thao tác này không?"
@@ -54,17 +52,17 @@ const ItemCart = (props) => {
           />
         </div>
 
-        <div className={`col-3 ${classes.product}`}>
+        <div className={`col-2 ${classes.product}`}>
           {" "}
           {props.data.productId.name}
         </div>
-        <div className={`col ${classes.price}`}>
+        <div className={`col-2 ${classes.price}`}>
           {new Intl.NumberFormat("vi-VN", {
             style: "currency",
             currency: "VND",
           }).format(props.data.productId.price)}
         </div>
-        <div className="col">
+        <div className="col-2">
           <input
             type="number"
             value={props.data.quantity}
@@ -73,13 +71,13 @@ const ItemCart = (props) => {
             // onChange={quantityChangeHandler}
           ></input>
         </div>
-        <div className={`col ${classes.price}`}>
+        <div className={`col-2 ${classes.price}`}>
           {new Intl.NumberFormat("vi-VN", {
             style: "currency",
             currency: "VND",
           }).format(total)}
         </div>
-        <div className="col">
+        <div className="col-2">
           <button className={classes.icon} onClick={deleteItemHandler}>
             <RiDeleteBin6Line />
           </button>

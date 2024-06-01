@@ -1,31 +1,92 @@
 .context-navbar {
+  background-color: rgb(50, 50, 50);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-style: italic;
+  padding: 5px 10px;
 }
 .context-navbar button {
-  background-color: white;
-
+  background-color: rgb(50, 50, 50);
+  color: white;
   border: none;
-  font-size: 22px;
-  padding: 10px 30px;
   font-style: italic;
+  padding: 10px 20px;
 }
 .text-header {
-  font-size: 32px;
-
-  margin: 30px;
+  font-size: 4rem;
+  padding: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-style: italic;
+}
+.links {
+  background-color: rgb(65, 65, 65);
+  border: 1px solid yellow;
+  border-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.links button {
+  background-color: rgb(65, 65, 65);
+  text-align: center;
 }
 .active {
-  color: rgb(225, 184, 0);
+  color: rgb(225, 184, 0) !important;
 }
 .user {
   font-size: 22px;
   display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 160px;
 }
 .icons {
-  color: rgb(188, 188, 188);
-  margin-right: 3px;
-  padding-bottom: 5px;
+  color: rgb(255, 255, 255);
+}
+.btn-toggle {
+  display: none;
+}
+.containt-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+.links-toggle {
+  display: none;
+  width: 100%;
+  background-color: rgb(65, 65, 65);
+  border-radius: 0 0 5px 5px;
+  padding: 15px 10px 20px 10px;
+}
+.links-toggle button {
+  color: white;
+  width: 90%;
+  text-align: center;
+  background-color: rgb(101, 101, 101);
+  border: none;
+  padding: 5px 10px;
+  margin-bottom: 3px;
+}
+.links-toggle button:hover {
+  border: 1px solid yellow;
+  border-radius: 3px;
+}
+
+@media only screen and (max-width: 992px) {
+  .btn-toggle {
+    display: block;
+  }
+  .links {
+    display: none;
+  }
+  .links-toggle {
+    display: block;
+  }
+  .text-header {
+    font-size: 2rem;
+  }
 }

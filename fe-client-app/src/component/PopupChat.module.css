@@ -7,6 +7,7 @@
   right: 5vw;
   bottom: 10vh;
   box-shadow: 2px 2px 5px 2px rgb(109, 109, 109);
+  z-index: 100;
 }
 .screen-chat {
   /* padding: 10px; */

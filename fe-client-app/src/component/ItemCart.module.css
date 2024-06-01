@@ -6,6 +6,9 @@
   color: rgb(154, 154, 154);
   font-size: 15px;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .icon {
   color: rgb(105, 105, 105);
@@ -21,4 +24,13 @@
   border: none;
   width: 70%;
   text-align: center;
+}
+
+@media only screen and (max-width: 992px) {
+  .product {
+    font-size: 12px;
+  }
+  .price {
+    font-size: 12px;
+  }
 }

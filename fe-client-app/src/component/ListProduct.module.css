@@ -15,11 +15,3 @@
   font-style: italic;
   margin-bottom: 30px;
 }
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: space-between;
-  align-content: start;
-  row-gap: 40px;
-  column-gap: 20px;
-}

@@ -6,11 +6,7 @@ import ItemOrder from "../component/ItemOrder";
 const HistoryPage = () => {
   const token = useSelector((state) => state.loginPage.token);
   const [listOrder, setListOrder] = useState([]);
-  // const [reloadCart, setReloadCart] = useState(false);
 
-  // const reloadCartPageHandler = () => {
-  //   setReloadCart((prevState) => !prevState);
-  // };
   useEffect(() => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -31,7 +27,7 @@ const HistoryPage = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className={classes["history-p"]}>
         <div
           className={`row align-items-center justify-content-between ${classes.header}`}
         >
@@ -39,21 +35,27 @@ const HistoryPage = () => {
           <p className="col">HISTORY</p>
         </div>
 
-        <div className="container" style={{ margin: "10% 0" }}>
+        <div style={{ width: "100%", margin: "10% 0px" }}>
           <div
             className={`row ${classes["header-table"]} justify-content-between`}
           >
-            <div className="col">ID ORDER</div>
-            <div className="col" style={{ margin: "0 15px" }}>
+            <div className={`col-2 ${classes.overflow}`}>ID ORDER</div>
+            <div className={`col-2 ${classes.overflow} ${classes.even} `}>
               ID USER
             </div>
-            <div className="col">NAME</div>
-            <div className="col">PHONE</div>
-            <div className="col">ADDRESS</div>
-            <div className="col">TOTAL</div>
-            <div className="col">DELIVERY</div>
-            <div className="col">STATUS</div>
-            <div className="col">DETAIL</div>
+            <div className={`col-1 ${classes.overflow}`}>NAME</div>
+            <div className={`col-1 ${classes.overflow} ${classes.even}`}>
+              PHONE
+            </div>
+            <div className={`col-2 ${classes.overflow}`}>ADDRESS</div>
+            <div className={`col-1  ${classes.overflow} ${classes.even}`}>
+              TOTAL
+            </div>
+            <div className={`col-1  ${classes.overflow} `}>DELIVERY</div>
+            <div className={`col-1 ${classes.overflow}  ${classes.even}`}>
+              STATUS
+            </div>
+            <div className={`col-1  ${classes.overflow} `}>DETAIL</div>
           </div>
           {listOrder.length === 0 ? (
             <div className="row align-items-center">

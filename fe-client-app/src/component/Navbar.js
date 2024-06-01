@@ -4,6 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaHistory } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { FaSearchPlus } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignInAlt } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   //---------  lay du lieu tu localStorage
@@ -22,6 +29,8 @@ const Navbar = () => {
 
   //hiển thị trạng thái Active phù hợp:
   const isActive = useSelector((state) => state.mainNavbar.isActiveState);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   //khi click vào btn:
   const homeButtonHandler = () => {
@@ -55,60 +64,156 @@ const Navbar = () => {
     navigate("/login");
   };
 
+  const btnToggleHandler = () => {
+    setIsOpen((prevState) => !prevState);
+  };
   return (
-    <div className={classes["context-navbar"]}>
-      <div>
-        <button
-          className={isActive === "home" ? classes.active : ""}
-          onClick={homeButtonHandler}
-        >
-          Home
-        </button>
-        {isLogin && (
-          <button
-            className={isActive === "shop" ? classes.active : ""}
-            onClick={shopButtonHandler}
-          >
-            Shop
-          </button>
-        )}
-      </div>
+    <div>
       <div className={classes["text-header"]}>BOUTIQUE</div>
-      <div>
+
+      <div className={classes["context-navbar"]}>
         {isLogin && (
-          <button
-            className={isActive === "cart" ? classes.active : ""}
-            onClick={cartButtonHandler}
-          >
-            <FaShoppingCart className={classes.icons} />
-            Cart
-          </button>
-        )}
-        {isLogin && (
-          <button
-            className={isActive === "history" ? classes.active : ""}
-            onClick={historyButtonHandler}
-          >
-            <FaHistory className={classes.icons} />
-            History
-          </button>
-        )}
-        {!isLogin && (
-          <button
-            className={isActive === "login" ? classes.active : ""}
-            onClick={loginButtonHandler}
-          >
-            Login
-          </button>
-        )}
-        {isLogin && (
-          <div className={classes.user}>
-            <FaUserAlt className={classes.icons} />
-            {userLogin.username}
+          <div>
+            <button className={classes.user}>
+              <FaUserAlt className={classes.icons} /> {userLogin.username}
+            </button>
           </div>
         )}
-        {isLogin && <button onClick={logoutButtonHandler}>Logout</button>}
+
+        <div className={classes.links}>
+          <div>
+            <button
+              className={isActive === "home" ? classes.active : ""}
+              onClick={homeButtonHandler}
+            >
+              <FaHome className={classes.icons} /> Home
+            </button>
+          </div>
+          {isLogin && (
+            <div>
+              <button
+                className={isActive === "shop" ? classes.active : ""}
+                onClick={shopButtonHandler}
+              >
+                <FaSearchPlus className={classes.icons} /> Shop
+              </button>
+            </div>
+          )}
+          {isLogin && (
+            <div>
+              <button
+                className={isActive === "cart" ? classes.active : ""}
+                onClick={cartButtonHandler}
+              >
+                <FaShoppingCart className={classes.icons} /> Cart
+              </button>
+            </div>
+          )}
+          {isLogin && (
+            <div>
+              <button
+                className={isActive === "history" ? classes.active : ""}
+                onClick={historyButtonHandler}
+              >
+                <FaHistory className={classes.icons} /> History
+              </button>
+            </div>
+          )}
+          {!isLogin && (
+            <div>
+              <button
+                className={isActive === "login" ? classes.active : ""}
+                onClick={loginButtonHandler}
+              >
+                <FaSignInAlt className={classes.icons} /> Login
+              </button>
+            </div>
+          )}
+
+          {isLogin && (
+            <div>
+              <button onClick={logoutButtonHandler}>
+                <FaSignOutAlt className={classes.icons} /> Logout
+              </button>
+            </div>
+          )}
+        </div>
+
+        {isLogin && (
+          <div className={classes["btn-toggle"]}>
+            <button onClick={btnToggleHandler}>
+              {isOpen ? (
+                <FaTimes className={classes["icons-toggle"]} />
+              ) : (
+                <FaBars className={classes["icons-toggle"]} />
+              )}
+            </button>
+          </div>
+        )}
       </div>
+
+      {isOpen && (
+        <div className={classes["containt-toggle"]}>
+          <div className={classes["links-toggle"]}>
+            <div>
+              <button
+                className={isActive === "home" ? classes.active : ""}
+                onClick={homeButtonHandler}
+              >
+                Home <FaHome className={classes.icons} />
+              </button>
+            </div>
+            {isLogin && (
+              <div>
+                <button
+                  className={isActive === "shop" ? classes.active : ""}
+                  onClick={shopButtonHandler}
+                >
+                  Shop <FaSearchPlus className={classes.icons} />
+                </button>
+              </div>
+            )}
+            {isLogin && (
+              <div>
+                <button
+                  className={isActive === "cart" ? classes.active : ""}
+                  onClick={cartButtonHandler}
+                >
+                  Cart <FaShoppingCart className={classes.icons} />
+                </button>
+              </div>
+            )}
+            {isLogin && (
+              <div>
+                <button
+                  className={isActive === "history" ? classes.active : ""}
+                  onClick={historyButtonHandler}
+                >
+                  History <FaHistory className={classes.icons} />
+                </button>
+              </div>
+            )}
+            {!isLogin && (
+              <div>
+                <button
+                  className={isActive === "login" ? classes.active : ""}
+                  onClick={loginButtonHandler}
+                >
+                  Login <FaSignInAlt className={classes.icons} />
+                </button>
+              </div>
+            )}
+
+            {isLogin && (
+              <div>
+                <button onClick={logoutButtonHandler}>
+                  Logout <FaSignOutAlt className={classes.icons} />
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

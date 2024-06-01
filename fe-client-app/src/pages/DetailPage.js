@@ -10,6 +10,7 @@ const DetailPage = (props) => {
   const { productId } = useParams();
   const navigate = useNavigate();
 
+  const [isOpen, setIsOpen] = useState(false);
   // state chứa số lượng muốn thêm (default = 1)
   const [quantity, setQuantity] = useState(1);
 
@@ -26,6 +27,10 @@ const DetailPage = (props) => {
     );
   });
 
+  //ham xem Description:
+  const descHandler = () => {
+    setIsOpen((prevState) => !prevState);
+  };
   //Chuyển trang tới detail/id của sản phẩm liên quan:
   const relateProductClick = (e) => {
     navigate(`/detail/${e["_id"]}`);
@@ -64,19 +69,6 @@ const DetailPage = (props) => {
         alert("Add to cart successfully!");
       })
       .catch((error) => alert(error.message));
-    // if (Number(quantity) !== 0) {
-    //   dispatch({
-    //     type: "ADD_CART",
-    //     payload: {
-    //       name: dataProduct[0].name,
-    //       id: productId,
-    //       img: dataProduct[0].img1,
-    //       price: dataProduct[0].price,
-    //       quantity: Number(quantity),
-    //     },
-    //   });
-    //   setQuantity("");
-    // }
   };
 
   return (
@@ -118,17 +110,26 @@ const DetailPage = (props) => {
                   onChange={quantityChange}
                   value={quantity}
                 ></input>
-                <button onClick={addItemBtnHandler}>Add to card</button>
+                <button
+                  className={classes["add-btn"]}
+                  onClick={addItemBtnHandler}
+                >
+                  Add to card
+                </button>
               </div>
             </div>
           </div>
           <div className={`row justify-content-start ${classes.desc}`}>
             <div className="col-12" style={{ textAlign: "left" }}>
-              <button>DESCRIPTION</button>
               <h2>PRODUCT DESCRIPTION</h2>
-              <div className={classes["desc-text"]}>
-                {dataProduct[0].long_desc}
-              </div>
+              <button className={classes["desc-btn"]} onClick={descHandler}>
+                {isOpen ? "Hidden Description" : "Show Description"}
+              </button>
+              {isOpen && (
+                <div className={classes["desc-text"]}>
+                  {dataProduct[0].long_desc}
+                </div>
+              )}
               <h2>RELATED PRODUCT</h2>
               <div className={classes["relate-list"]}>
                 {relateList.map((item) => (

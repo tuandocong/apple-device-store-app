@@ -43,15 +43,15 @@ const ListShopPage = (props) => {
       <div style={{ textAlign: "left", margin: "10px 0", padding: "10px" }}>
         <input
           onChange={textFilterChange}
-          style={{ padding: "5px 10px", width: "40%" }}
+          style={{ padding: "5px 10px", width: "60%" }}
           type="text"
           placeholder="Enter Search Here!"
         ></input>
       </div>
 
-      <div className="row g-3">
+      <div className="row g-3" style={{ maxHeight: "100vh", overflow: "auto" }}>
         {listProducts.map((item) => (
-          <div className="col-4" key={item.name}>
+          <div className="col-sm-12 col-md-6 col-lg-4" key={item.name}>
             <ItemProduct item={item} clickHandler={itemClickHandler} />
           </div>
         ))}

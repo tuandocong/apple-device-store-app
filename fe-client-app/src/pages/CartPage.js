@@ -41,24 +41,24 @@ const CartPage = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className={classes.cart}>
         <div
           className={`row align-items-center justify-content-between ${classes.header}`}
         >
           <h2 className="col">CART</h2>
-          <p className="col">CART</p>
+          <p className="col">CART PAGE</p>
         </div>
         <div className="row">
           <h2 className={classes["text-h2"]}>SHOPPING CART</h2>
         </div>
-        <div className="row">
-          <div className="col-9">
+        <div className="row" style={{ marginBottom: "30px" }}>
+          <div className="col-12 col-lg-9">
             <ListItemCart
               listCart={arrItemsCart}
               reloadHandler={reloadCartPageHandler}
             />
           </div>
-          <div className="col-3">
+          <div className="col12 col-lg-3">
             <CartTotal total={totalCart} />
           </div>
         </div>

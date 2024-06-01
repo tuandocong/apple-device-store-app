@@ -35,13 +35,13 @@
   padding-left: 10px;
   color: rgb(128, 128, 128);
 }
-.detail button {
+.add-btn {
   background-color: rgb(37, 37, 37);
   color: white;
   padding: 7px 15px;
 }
-.detail button:hover,
-.detail button:active {
+.add-btn:hover,
+.add-btn:active {
   background-color: rgb(64, 64, 64);
 }
 .input-quantity input {
@@ -56,10 +56,11 @@
   margin: 30px 0;
 }
 .desc-text {
-  width: 50%;
+  width: 100%;
   font-size: 18px;
   color: rgb(125, 123, 123);
   padding-bottom: 50px;
+  margin-top: 30px;
 }
 .relate-list {
   display: flex;
@@ -67,4 +68,15 @@
 }
 .relate-item {
   max-width: 30%;
+}
+.desc-btn {
+  font-size: 15px;
+  padding: 5px 15px;
+  border-radius: 3px;
+  color: #000;
+  background-color: rgb(213, 213, 213);
+}
+.desc-btn:hover,
+.desc-btn:active {
+  background-color: rgb(180, 180, 180);
 }

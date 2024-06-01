@@ -1,3 +1,7 @@
+.checkout-p {
+  width: 100%;
+}
+
 .text-h2 {
   text-align: left;
   font-size: 22px;
@@ -11,10 +15,9 @@
   padding: 10vh 0;
   margin: 0px;
   width: 100%;
-  /* border: 1px solid green; */
+  --bs-gutter-x: 0 !important;
 }
 .header h2 {
-  /* border: 1px solid green; */
   font-style: italic;
   text-align: left;
   padding: 0 0 0 8%;
@@ -22,7 +25,6 @@
   color: rgb(40, 40, 40);
 }
 .link {
-  /* border: 1px solid orange; */
   text-align: right;
   padding: 0 8% 0 0;
   margin-right: 60px !important;
@@ -59,4 +61,8 @@
 .form button:disabled {
   background-color: rgb(236, 236, 236);
   color: rgb(100, 100, 100);
+}
+
+.order {
+  --bs-gutter-x: inherit;
 }
