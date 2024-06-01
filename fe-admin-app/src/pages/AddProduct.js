@@ -63,7 +63,7 @@ const AddProduct = () => {
       )
         .then((response) => response.json())
         .then((result) => {
-          console.log(result);
+          // console.log(result);
           if (!result.isSuccess) {
             alert("Create product fail!");
             throw new Error(result.msg);

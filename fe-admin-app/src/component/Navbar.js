@@ -56,60 +56,65 @@ const Navbar = () => {
   };
 
   return (
-    <div className={classes["context-navbar"]}>
-      <div className={classes["items-nav"]}>
-        {isLogin && isAdmin && (
-          <button
-            className={isActive === "home" ? classes.active : ""}
-            onClick={homeButtonHandler}
-          >
-            <FaClipboardList className={classes.icons} />
-            Home
-          </button>
-        )}
-        {isLogin && isAdmin && (
-          <button
-            className={isActive === "products" ? classes.active : ""}
-            onClick={productButtonHandler}
-          >
-            <FaDiceD6 className={classes.icons} />
-            Products
-          </button>
-        )}
-        {isLogin && (
-          <button
-            className={isActive === "chat" ? classes.active : ""}
-            onClick={chatButtonHandler}
-          >
-            <FaFacebookMessenger className={classes.icons} />
-            ChatApp
-          </button>
-        )}
+    <div>
+      <div className={classes["title-page"]}>
+        <h1>ADMIN APP</h1>
       </div>
+      <div className={classes["context-navbar"]}>
+        <div className={classes["items-nav"]}>
+          {isLogin && isAdmin && (
+            <button
+              className={isActive === "home" ? classes.active : ""}
+              onClick={homeButtonHandler}
+            >
+              <FaClipboardList className={classes.icons} />
+              Home
+            </button>
+          )}
+          {isLogin && isAdmin && (
+            <button
+              className={isActive === "products" ? classes.active : ""}
+              onClick={productButtonHandler}
+            >
+              <FaDiceD6 className={classes.icons} />
+              Products
+            </button>
+          )}
+          {isLogin && (
+            <button
+              className={isActive === "chat" ? classes.active : ""}
+              onClick={chatButtonHandler}
+            >
+              <FaFacebookMessenger className={classes.icons} />
+              ChatApp
+            </button>
+          )}
+        </div>
 
-      <div className={classes["items-nav"]}>
-        {!isLogin && (
-          <button
-            className={isActive === "login" ? classes.active : ""}
-            onClick={loginButtonHandler}
-          >
-            <FaSignInAlt className={classes.icons} />
-            Login
-          </button>
-        )}
+        <div className={classes["items-nav"]}>
+          {!isLogin && (
+            <button
+              className={isActive === "login" ? classes.active : ""}
+              onClick={loginButtonHandler}
+            >
+              <FaSignInAlt className={classes.icons} />
+              Login
+            </button>
+          )}
 
-        {isLogin && (
-          <div className={classes.user}>
-            <FaUserAlt className={classes.icons} />
-            {userLogin.username}
-          </div>
-        )}
-        {isLogin && (
-          <button onClick={logoutButtonHandler}>
-            <FaSignOutAlt className={classes.icons} />
-            Logout
-          </button>
-        )}
+          {isLogin && (
+            <button className={classes.user}>
+              <FaUserAlt className={classes.icons} />
+              {userLogin.username}
+            </button>
+          )}
+          {isLogin && (
+            <button onClick={logoutButtonHandler}>
+              <FaSignOutAlt className={classes.icons} />
+              Logout
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

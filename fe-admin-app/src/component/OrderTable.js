@@ -26,7 +26,7 @@ const OrderTable = () => {
     fetch(`${process.env.REACT_APP_API_URL}/orders/latest`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         if (!result.isSuccess) {
           throw new Error(result.msg);
         }
@@ -36,10 +36,10 @@ const OrderTable = () => {
   }, [token]);
 
   return (
-    <TableContainer className={classes.table}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+    <TableContainer className={classes["table-contain"]}>
+      <Table className={classes.table} aria-label="simple table">
         <TableHead className={classes["table-head"]}>
-          <TableRow>
+          <TableRow className={classes["table-row"]}>
             <TableCell className={classes.headCell}> ID User</TableCell>
             <TableCell className={classes.headCell}>Name</TableCell>
             <TableCell className={classes.headCell}>Phone</TableCell>
@@ -50,48 +50,34 @@ const OrderTable = () => {
             <TableCell className={classes.headCell}>Detail</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody className={classes["table-body"]}>
           {rows &&
             rows.map((row) => (
-              <TableRow key={row._id}>
-                <TableCell className={classes.tableCell}>
+              <TableRow key={row._id} className={classes["table-row"]}>
+                <TableCell data-label="ID User" className={classes.tableCell}>
                   {row.user._id}
                 </TableCell>
-                <TableCell className={classes.tableCell}>
+                <TableCell data-label="Name" className={classes.tableCell}>
                   {row.user.username}
                 </TableCell>
-                <TableCell className={classes.tableCell}>
+                <TableCell data-label="Phone" className={classes.tableCell}>
                   {row.user.phone}
                 </TableCell>
-                <TableCell className={classes.tableCell}>
+                <TableCell data-label="Address" className={classes.tableCell}>
                   {row.user.address}
                 </TableCell>
-                <TableCell className={classes.tableCell}>
+                <TableCell data-label="Total" className={classes.tableCell}>
                   {row.totalPrice}
                 </TableCell>
-                <TableCell className={classes.tableCell}>
+                <TableCell data-label="Delivery" className={classes.tableCell}>
                   Chưa vận chuyển
                 </TableCell>
-                <TableCell className={classes.tableCell}>
+                <TableCell data-label="Status" className={classes.tableCell}>
                   {row.status}
                 </TableCell>
-                <TableCell className={classes.tableCell}>
+                <TableCell data-label="Detail" className={classes.tableCell}>
                   <button className={classes.btnCell}>View</button>
                 </TableCell>
-                {/* {row.hotel ? (
-                <TableCell className="tableCell">{row.user.phone} </TableCell>
-              ) : (
-                <TableCell className="tableCell">None </TableCell>
-              )}
-              <TableCell className="tableCell">{row.room.join(",")}</TableCell>
-              <TableCell className="tableCell">
-                {getDate(row.startDate)} - {getDate(row.endDate)}
-              </TableCell>
-              <TableCell className="tableCell">{row.price}</TableCell>
-              <TableCell className="tableCell">{row.payment}</TableCell>
-              <TableCell className="tableCell">
-                <span className={`status ${row.status}`}>{row.status}</span>
-              </TableCell> */}
               </TableRow>
             ))}
         </TableBody>

@@ -75,3 +75,43 @@
   background-color: rgb(245, 209, 68);
   color: rgb(31, 31, 31);
 }
+
+@media only screen and (max-width: 767px) {
+  .prodSearch {
+    display: block;
+    text-align: left;
+  }
+  .prodSearch button {
+    margin-top: 15px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .table {
+    min-width: none !important;
+  }
+  .table-head {
+    display: none !important;
+  }
+  .table-row {
+    background-color: rgb(211, 211, 211);
+    display: block !important;
+    margin-bottom: 30px;
+    border: 1px solid rgb(84, 84, 84);
+    border-collapse: collapse;
+    position: relative;
+  }
+  .table-row .tableCell {
+    display: block !important;
+    text-align: right;
+  }
+  .table-row .tableCell::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    text-align: left;
+    font-weight: bold;
+    color: rgb(18, 142, 88);
+  }
+}

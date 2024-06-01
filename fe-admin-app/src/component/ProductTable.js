@@ -73,17 +73,21 @@ const ProductTable = () => {
   return (
     <div>
       <div className={classes.prodSearch}>
-        <input
-          onChange={textFilterChange}
-          type="text"
-          placeholder="Enter Search!"
-        ></input>
-        <button onClick={newProductBtnHandler}>New Product</button>
+        <div>
+          <input
+            onChange={textFilterChange}
+            type="text"
+            placeholder="Enter Search!"
+          ></input>
+        </div>
+        <div>
+          <button onClick={newProductBtnHandler}>New Product</button>
+        </div>
       </div>
       <TableContainer className={classes.table}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead className={classes["table-head"]}>
-            <TableRow>
+            <TableRow className={classes["table-row"]}>
               <TableCell className={classes.headCell}> ID </TableCell>
               <TableCell className={classes.headCell}>Name</TableCell>
               <TableCell className={classes.headCell}>Price</TableCell>
@@ -93,24 +97,36 @@ const ProductTable = () => {
             </TableRow>
           </TableHead>
 
-          <TableBody>
+          <TableBody className={classes["table-body"]}>
             {rows?.map((row) => (
-              <TableRow key={row._id}>
-                <TableCell className={classes.tableCell}>{row._id}</TableCell>
-                <TableCell className={classes.tableCell}>{row.name}</TableCell>
-                <TableCell className={classes.tableCell}>{row.price}</TableCell>
-                <TableCell className={classes.tableCell}>
+              <TableRow key={row._id} className={classes["table-row"]}>
+                <TableCell data-label="ID" className={classes.tableCell}>
+                  {row._id}
+                </TableCell>
+                <TableCell data-label="Name" className={classes.tableCell}>
+                  {row.name}
+                </TableCell>
+                <TableCell data-label="Price" className={classes.tableCell}>
+                  {row.price}
+                </TableCell>
+                <TableCell data-label="Image" className={classes.tableCell}>
                   <img
                     src={row.img1}
                     alt="img-prod"
                     style={{ maxWidth: "100px" }}
                   />
                 </TableCell>
-                <TableCell className={classes.tableCell}>
+                <TableCell data-label="Category" className={classes.tableCell}>
                   {row.category}
                 </TableCell>
-                <TableCell className={classes.tableCell}>
-                  <div style={{ display: "flex", alignItems: "center" }}>
+                <TableCell data-label="Edit" className={classes.tableCell}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "end",
+                    }}
+                  >
                     <button
                       onClick={() => {
                         updateProductBtnHandler(row._id);

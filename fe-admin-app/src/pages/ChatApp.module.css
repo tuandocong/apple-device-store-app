@@ -8,20 +8,20 @@
   font-size: 18px;
   font-weight: bold;
   color: rgb(49, 49, 49);
-  padding: 15px 35px;
+  padding: 15px 10px;
 }
 
 .appContainer {
   background-color: white;
   -webkit-box-shadow: 2px 4px 10px 1px rgb(92, 92, 92);
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-  margin: 20px 35px;
-
+  margin: 20px 10px;
+  /* border: 1px solid green; */
   display: flex;
 }
 .leftApp {
-  /* border-right: 6px solid rgb(156, 156, 156); */
-  border-right: 4px solid rgb(240, 240, 240);
+  margin-right: 3px;
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
   width: 25%;
   overflow: auto;
   padding-bottom: 100px;
@@ -29,9 +29,11 @@
 .l-search {
   border-bottom: 2px solid rgb(216, 216, 216);
   padding: 20px;
+  background-color: rgb(67, 102, 172);
 }
 .l-search input {
-  border: 2px solid rgb(216, 216, 216);
+  width: 100%;
+  border-radius: 4px;
   padding: 5px 10px;
 }
 .l-list {
@@ -54,7 +56,9 @@
   background-color: rgb(213, 223, 255);
 }
 .rightApp {
-  width: 75%;
+  /* border: 1px solid rgb(17, 0, 200); */
+  border-radius: 5px 5px 0 0;
+  width: 100%;
   max-height: 80vh;
   position: relative;
 }
@@ -62,7 +66,6 @@
   height: 100%;
   overflow: auto;
   padding: 15px 20px 70px 20px;
-  /* border: 1px solid red; */
 }
 .r-input {
   width: 100%;
@@ -73,7 +76,6 @@
   align-items: center;
   gap: 10px;
   height: 50px;
-  /* border: 1px green solid; */
   position: absolute;
   bottom: 0px;
   background-color: rgb(255, 255, 255);
@@ -99,9 +101,7 @@
 }
 .chat {
   margin-top: 60px;
-  /* height: 75%;  */
   overflow: auto;
-  /* border: 1px solid blue; */
   padding-bottom: 70px;
 }
 .user-chat {
@@ -141,5 +141,16 @@
   background-color: rgb(67, 102, 172);
   color: white;
   width: 100%;
-  border-radius: 5px 5px 0 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .leftApp {
+    width: 40%;
+  }
+  .rightApp {
+    min-width: 60%;
+  }
+  .l-search input {
+    width: 100%;
+  }
 }

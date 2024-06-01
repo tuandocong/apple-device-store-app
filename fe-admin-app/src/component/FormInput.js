@@ -82,7 +82,7 @@ const FormInput = () => {
         .then((result) => {
           if (!result.isSuccess) {
             alert("Sign up fail!");
-            console.log("result:", result);
+            // console.log("result:", result);
             throw new Error(result.msg);
           }
           alert("Dang ky user thanh cong !!!");
