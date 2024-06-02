@@ -167,7 +167,7 @@ const FormInput = () => {
         <div>
           <input
             type="email"
-            placeholder="Email"
+            placeholder="Email (admin1@gmail.com)"
             value={emailInput}
             onChange={emailInputChange}
           ></input>
@@ -175,7 +175,7 @@ const FormInput = () => {
         <div>
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Password (123123123)"
             value={passwordInput}
             onChange={passwordInputChange}
           ></input>

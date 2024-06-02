@@ -25,11 +25,17 @@ const ListProducts = (props) => {
         <div>TOP TRENDING PRODUCTS</div>
       </header>
       <div className="row g-3">
-        {props.data.map((item) => (
-          <div className="col-6 col-md-4 col-lg-3" key={item.name}>
-            <ItemProduct item={item} clickHandler={itemPopupChange} />
-          </div>
-        ))}
+        {props.data.map((item, i) => {
+          if (item) {
+            return (
+              <div className="col-6 col-md-4 col-lg-3" key={item.name}>
+                <ItemProduct item={item} clickHandler={itemPopupChange} />
+              </div>
+            );
+          } else {
+            return <div key={i}></div>;
+          }
+        })}
       </div>
     </div>
   );
